@@ -15,29 +15,29 @@ Godot has several builtin methods for getting child objects, but I prefer Unity'
 /// Gets all children of the given type via depth first search. 
 /// Note: This function excludes children of a node that is the target type. 
 /// See GetChildrenThorough() if you want that.
-GetChildren<T>()
+public static List<T> GetChildren<T>(this Node node) where T : class {}
 
 /// Gets all children of the given type via depth first search.
 /// Note: This also includes children of a node that is the target type. 
 /// See GetChildren() if you don't want that.
-GetChildrenThorough<T>()
+public static List<T> GetChildrenThorough<T>(this Node node) where T : class {}
 
 /// Gets the first child of the given type via breadth first search.
-GetChild<T>()
+public static T GetChild<T>(this Node node) {}
 
 /// Gets the first direct child fo the given type.
 /// This is faster when you know the child you are searching for is a direct child.
-GetDirectChild<T>()
+public static T GetDirectChild<T>(this Node node) where T : class {}
 
 /// Gets the direct children matching the type T. 
 /// Faster than GetChildren() when you know the nodes are direct children.
-GetDirectChildren<T>()
+public static List<T> GetDirectChildren<T>(this Node node) where T : class {}
 
 /// Gets the first sibling matching the type T, where it returns null if the sibling does not exist.
-GetFirstSiblingOfType<T>()
+public static T GetFirstSiblingOfType<T>(this Node node) where T : class {}
 
 /// Gets all of the siblings matching the type T.
-GetFirstChildOfType<T>()
+public static List<T> GetSiblingsOfType<T>(this Node node) where T : class {}
 ```
 
 ### Math Extensions
@@ -45,7 +45,7 @@ There are many useful math functions in Mathf but suprisingly, it was lacking a 
 
 ``` csharp
 /// Returns true if a non-complex solution exists.
-QuadraticSolver(a, b, c, out negativeRoot, out positiveRoot)
+public static bool QuadraticSolver(float a, float b, float c, out float x1, out float x2)
 ```
 
 ### Other Extensions
